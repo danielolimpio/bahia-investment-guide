@@ -13,6 +13,7 @@ import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TagSlugRouteImport } from './routes/tag.$slug'
 import { Route as CategoriaSlugRouteImport } from './routes/categoria.$slug'
+import { Route as ArtigoSlugRouteImport } from './routes/artigo.$slug'
 
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
@@ -34,16 +35,23 @@ const CategoriaSlugRoute = CategoriaSlugRouteImport.update({
   path: '/categoria/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArtigoSlugRoute = ArtigoSlugRouteImport.update({
+  id: '/artigo/$slug',
+  path: '/artigo/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sobre': typeof SobreRoute
+  '/artigo/$slug': typeof ArtigoSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
   '/tag/$slug': typeof TagSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sobre': typeof SobreRoute
+  '/artigo/$slug': typeof ArtigoSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
   '/tag/$slug': typeof TagSlugRoute
 }
@@ -51,20 +59,33 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sobre': typeof SobreRoute
+  '/artigo/$slug': typeof ArtigoSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
   '/tag/$slug': typeof TagSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sobre' | '/categoria/$slug' | '/tag/$slug'
+  fullPaths:
+    | '/'
+    | '/sobre'
+    | '/artigo/$slug'
+    | '/categoria/$slug'
+    | '/tag/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sobre' | '/categoria/$slug' | '/tag/$slug'
-  id: '__root__' | '/' | '/sobre' | '/categoria/$slug' | '/tag/$slug'
+  to: '/' | '/sobre' | '/artigo/$slug' | '/categoria/$slug' | '/tag/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/sobre'
+    | '/artigo/$slug'
+    | '/categoria/$slug'
+    | '/tag/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SobreRoute: typeof SobreRoute
+  ArtigoSlugRoute: typeof ArtigoSlugRoute
   CategoriaSlugRoute: typeof CategoriaSlugRoute
   TagSlugRoute: typeof TagSlugRoute
 }
@@ -99,12 +120,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CategoriaSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/artigo/$slug': {
+      id: '/artigo/$slug'
+      path: '/artigo/$slug'
+      fullPath: '/artigo/$slug'
+      preLoaderRoute: typeof ArtigoSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SobreRoute: SobreRoute,
+  ArtigoSlugRoute: ArtigoSlugRoute,
   CategoriaSlugRoute: CategoriaSlugRoute,
   TagSlugRoute: TagSlugRoute,
 }
