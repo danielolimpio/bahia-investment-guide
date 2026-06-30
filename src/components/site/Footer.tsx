@@ -95,7 +95,7 @@ export function Footer() {
             </div>
             <ul className="space-y-2 text-sm">
               <li><Link to="/sobre" className="hover:text-brand transition">Sobre</Link></li>
-              <li><Link to="/sobre" hash="metodologia" className="hover:text-brand transition">Metodologia</Link></li>
+              <li><Link to="/sobre" className="hover:text-brand transition">Metodologia</Link></li>
               <li><Link to="/sobre" className="hover:text-brand transition">Política Editorial</Link></li>
               <li><Link to="/sobre" className="hover:text-brand transition">Privacidade</Link></li>
               <li><Link to="/sobre" className="hover:text-brand transition">Termos de Uso</Link></li>
