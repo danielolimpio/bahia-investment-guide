@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Instagram, Youtube, Linkedin, Facebook, ArrowRight } from "lucide-react";
+import { CATEGORIES, POSTS } from "@/lib/posts";
 
 export function Footer() {
   return (
@@ -67,9 +68,9 @@ export function Footer() {
               Categorias
             </div>
             <ul className="space-y-2 text-sm">
-              {["Energia Eólica & Solar","Imóveis de Temporada","Agronegócio","Due Diligence","Incentivos Fiscais","Cases & ROI Real"].map((c) => (
-                <li key={c}>
-                  <a href="#" className="hover:text-brand transition">{c}</a>
+              {CATEGORIES.map((c) => (
+                <li key={c.slug}>
+                  <Link to="/categoria/$slug" params={{ slug: c.slug }} className="hover:text-brand transition">{c.name}</Link>
                 </li>
               ))}
             </ul>
@@ -80,13 +81,9 @@ export function Footer() {
               Mais Lidos
             </div>
             <ul className="space-y-3 text-sm">
-              {[
-                "3 Investimentos na Bahia que pagam 1,5% ao mês",
-                "Como 1 casa em Itacaré gera R$ 8k/mês",
-                "PRODUZIR BA 2026: o que muda para investidores",
-              ].map((t) => (
-                <li key={t} className="text-white/75 hover:text-white">
-                  <a href="#" className="leading-snug">{t}</a>
+              {POSTS.slice(0, 4).map((p) => (
+                <li key={p.slug} className="text-white/75 hover:text-white">
+                  <Link to="/artigo/$slug" params={{ slug: p.slug }} className="leading-snug">{p.title}</Link>
                 </li>
               ))}
             </ul>
@@ -97,11 +94,13 @@ export function Footer() {
               Institucional
             </div>
             <ul className="space-y-2 text-sm">
-              {["Sobre","Metodologia","Política Editorial","Privacidade","Termos de Uso","Anuncie","Contato"].map((c) => (
-                <li key={c}>
-                  <Link to="/" className="hover:text-brand transition">{c}</Link>
-                </li>
-              ))}
+              <li><Link to="/sobre" className="hover:text-brand transition">Sobre</Link></li>
+              <li><Link to="/sobre" className="hover:text-brand transition">Metodologia</Link></li>
+              <li><Link to="/sobre" className="hover:text-brand transition">Política Editorial</Link></li>
+              <li><Link to="/sobre" className="hover:text-brand transition">Privacidade</Link></li>
+              <li><Link to="/sobre" className="hover:text-brand transition">Termos de Uso</Link></li>
+              <li><Link to="/sobre" className="hover:text-brand transition">Anuncie</Link></li>
+              <li><Link to="/sobre" className="hover:text-brand transition">Contato</Link></li>
             </ul>
           </div>
         </div>

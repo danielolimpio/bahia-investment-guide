@@ -1,8 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { PostCard } from "@/components/site/PostCard";
-import { featured, editorial, popular, latest } from "@/lib/posts";
+import { featured, editorial, popular, latest, ALL_TAGS, tagSlug, CATEGORIES } from "@/lib/posts";
 import { ArrowRight, TrendingUp, Flame, Star, Zap, Building2, Sprout, ShieldCheck, ChevronRight } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -38,7 +38,7 @@ function Index() {
       <section className="mx-auto max-w-7xl px-4 pt-8">
         <div className="grid gap-5 lg:grid-cols-[1.6fr_1fr]">
           {/* main feature */}
-          <article className="relative rounded-lg overflow-hidden group min-h-[460px]">
+          <Link to="/artigo/$slug" params={{ slug: featured[1].slug! }} className="relative rounded-lg overflow-hidden group min-h-[460px] block">
             <img src={featured[1].image} alt={featured[1].title} width={1024} height={1024} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
             <div className="relative h-full p-7 md:p-10 flex flex-col justify-end text-white">
@@ -54,12 +54,12 @@ function Index() {
                 <span>· {featured[1].read} de leitura</span>
               </div>
             </div>
-          </article>
+          </Link>
 
           {/* side stack */}
           <div className="grid gap-5">
             {[featured[0], featured[2]].map((p) => (
-              <article key={p.title} className="relative rounded-lg overflow-hidden group min-h-[220px]">
+              <Link key={p.title} to="/artigo/$slug" params={{ slug: p.slug! }} className="relative rounded-lg overflow-hidden group min-h-[220px] block">
                 <img src={p.image} alt={p.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                 <div className="relative h-full p-5 flex flex-col justify-end text-white">
@@ -67,7 +67,7 @@ function Index() {
                   <h2 className="font-display font-bold text-lg md:text-xl leading-snug">{p.title}</h2>
                   <div className="text-[11px] text-white/70 mt-2">{p.author} · {p.date}</div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
@@ -79,18 +79,18 @@ function Index() {
           <div className="flex items-center gap-1">
             <span className="section-bar-title">Setores em Destaque</span>
           </div>
-          <a href="#" className="text-xs font-semibold text-brand inline-flex items-center gap-1 uppercase tracking-wider">
+          <Link to="/sobre" className="text-xs font-semibold text-brand inline-flex items-center gap-1 uppercase tracking-wider">
             Ver todos <ChevronRight className="w-3 h-3" />
-          </a>
+          </Link>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { icon: Zap, label: "Energia Eólica & Solar", desc: "TIR 14–18% a.a.", color: "bg-brand" },
-            { icon: Building2, label: "Imóveis de Temporada", desc: "Cap rate 9–12%", color: "bg-ink" },
-            { icon: Sprout, label: "Agronegócio Premium", desc: "Margem 200%+", color: "bg-[oklch(0.5_0.13_150)]" },
-            { icon: ShieldCheck, label: "Due Diligence", desc: "PRODUZIR BA 2026", color: "bg-[oklch(0.45_0.13_240)]" },
-          ].map(({ icon: Icon, label, desc, color }) => (
-            <a key={label} href="#" className="group bg-card border border-border rounded-lg p-5 flex items-center gap-4 hover:border-brand transition">
+            { icon: Zap, label: "Energia Eólica & Solar", desc: "TIR 14–18% a.a.", color: "bg-brand", slug: "energia" },
+            { icon: Building2, label: "Imóveis de Temporada", desc: "Cap rate 9–12%", color: "bg-ink", slug: "imoveis" },
+            { icon: Sprout, label: "Agronegócio Premium", desc: "Margem 200%+", color: "bg-[oklch(0.5_0.13_150)]", slug: "agronegocio" },
+            { icon: ShieldCheck, label: "Due Diligence", desc: "PRODUZIR BA 2026", color: "bg-[oklch(0.45_0.13_240)]", slug: "due-diligence" },
+          ].map(({ icon: Icon, label, desc, color, slug }) => (
+            <Link key={label} to="/categoria/$slug" params={{ slug }} className="group bg-card border border-border rounded-lg p-5 flex items-center gap-4 hover:border-brand transition">
               <div className={`${color} w-12 h-12 rounded-md grid place-items-center text-white flex-none`}>
                 <Icon className="w-6 h-6" />
               </div>
@@ -98,7 +98,7 @@ function Index() {
                 <div className="font-display font-bold text-ink group-hover:text-brand transition">{label}</div>
                 <div className="text-xs text-ink-soft">{desc}</div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
@@ -108,7 +108,7 @@ function Index() {
         <div>
           <div className="section-bar">
             <span className="section-bar-title">Análises Editoriais</span>
-            <a href="#" className="text-xs font-semibold text-brand inline-flex items-center gap-1 uppercase tracking-wider">Mais artigos <ChevronRight className="w-3 h-3" /></a>
+            <Link to="/categoria/$slug" params={{ slug: "energia" }} className="text-xs font-semibold text-brand inline-flex items-center gap-1 uppercase tracking-wider">Mais artigos <ChevronRight className="w-3 h-3" /></Link>
           </div>
           <div className="grid gap-5 sm:grid-cols-2">
             {editorial.map((p) => <PostCard key={p.title} post={p} />)}
@@ -117,7 +117,7 @@ function Index() {
           {/* Wide cards */}
           <div className="section-bar mt-12">
             <span className="section-bar-title">Cases & ROI Real</span>
-            <a href="#" className="text-xs font-semibold text-brand inline-flex items-center gap-1 uppercase tracking-wider">Todos os cases <ChevronRight className="w-3 h-3" /></a>
+            <Link to="/categoria/$slug" params={{ slug: "cases" }} className="text-xs font-semibold text-brand inline-flex items-center gap-1 uppercase tracking-wider">Todos os cases <ChevronRight className="w-3 h-3" /></Link>
           </div>
           <div className="grid gap-5">
             {popular.slice(0, 3).map((p) => <PostCard key={p.title} post={p} variant="wide" />)}
@@ -132,16 +132,16 @@ function Index() {
             </div>
             <div className="space-y-5">
               {popular.map((p, i) => (
-                <div key={p.title} className="flex gap-3 items-start">
+                <Link key={p.title} to="/artigo/$slug" params={{ slug: p.slug! }} className="flex gap-3 items-start group">
                   <div className="font-display font-black text-3xl text-brand/30 leading-none w-8">
                     {String(i + 1).padStart(2, "0")}
                   </div>
                   <div className="min-w-0">
                     <span className="chip-outline mb-1.5">{p.category}</span>
-                    <h4 className="font-display font-bold text-sm leading-snug text-ink hover:text-brand transition cursor-pointer">{p.title}</h4>
+                    <h4 className="font-display font-bold text-sm leading-snug text-ink group-hover:text-brand transition">{p.title}</h4>
                     <div className="text-[11px] text-ink-soft mt-1">{p.author} · {p.date}</div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -161,10 +161,10 @@ function Index() {
               <span className="section-bar-title flex items-center gap-2"><Star className="w-4 h-4 text-brand" /> Tags</span>
             </div>
             <div className="flex flex-wrap gap-2">
-              {["Eólica","Solar","Trancoso","Itacaré","Cacau Fino","PRODUZIR BA","ICMS","ANEEL","Airbnb","Petrolina","Morro de SP","Holding"].map((t) => (
-                <a key={t} href="#" className="text-xs px-3 py-1.5 rounded border border-border text-ink-soft hover:bg-brand hover:text-brand-foreground hover:border-brand transition">
+              {ALL_TAGS.slice(0, 14).map((t) => (
+                <Link key={t} to="/tag/$slug" params={{ slug: tagSlug(t) }} className="text-xs px-3 py-1.5 rounded border border-border text-ink-soft hover:bg-brand hover:text-brand-foreground hover:border-brand transition">
                   #{t}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -184,19 +184,19 @@ function Index() {
       <section className="mx-auto max-w-7xl px-4 mt-14">
         <div className="section-bar">
           <span className="section-bar-title">Últimas Atualizações</span>
-          <a href="#" className="text-xs font-semibold text-brand inline-flex items-center gap-1 uppercase tracking-wider">Arquivo completo <ChevronRight className="w-3 h-3" /></a>
+          <Link to="/sobre" className="text-xs font-semibold text-brand inline-flex items-center gap-1 uppercase tracking-wider">Arquivo completo <ChevronRight className="w-3 h-3" /></Link>
         </div>
         <div className="bg-card border border-border rounded-lg divide-y divide-border">
           {latest.map((p, i) => (
-            <div key={p.title} className="flex items-center gap-5 p-5 hover:bg-panel/50 transition">
+            <Link key={p.title} to="/artigo/$slug" params={{ slug: p.slug! }} className="flex items-center gap-5 p-5 hover:bg-panel/50 transition group">
               <div className="font-display font-black text-2xl text-brand w-10 flex-none">{String(i+1).padStart(2,"0")}</div>
               <img src={p.image} alt={p.title} loading="lazy" className="w-16 h-16 object-cover rounded flex-none" />
               <div className="flex-1 min-w-0">
                 <span className="chip-outline">{p.category}</span>
-                <h4 className="font-display font-bold text-base mt-1 text-ink hover:text-brand transition cursor-pointer">{p.title}</h4>
+                <h4 className="font-display font-bold text-base mt-1 text-ink group-hover:text-brand transition">{p.title}</h4>
               </div>
               <div className="hidden md:block text-xs text-ink-soft flex-none">{p.author} · {p.date}</div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -222,9 +222,9 @@ function Index() {
       <section className="mx-auto max-w-7xl px-4 mt-14">
         <div className="section-bar">
           <span className="section-bar-title">Explore Todos os Artigos</span>
-          <div className="flex gap-1 text-xs">
-            {["Todos","Energia","Imóveis","Agro","Fiscal"].map((t, i) => (
-              <button key={t} className={`px-3 py-1.5 rounded ${i===0?"bg-brand text-brand-foreground":"text-ink-soft hover:text-ink"}`}>{t}</button>
+          <div className="flex gap-1 text-xs flex-wrap">
+            {CATEGORIES.slice(0, 5).map((c) => (
+              <Link key={c.slug} to="/categoria/$slug" params={{ slug: c.slug }} className="px-3 py-1.5 rounded text-ink-soft hover:bg-brand hover:text-brand-foreground transition">{c.short}</Link>
             ))}
           </div>
         </div>
