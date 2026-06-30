@@ -1,17 +1,32 @@
 import { Link } from "@tanstack/react-router";
 import { Search, Menu, Flame, Mail } from "lucide-react";
 import { useState } from "react";
+import { CATEGORIES } from "@/lib/posts";
 
-const NAV = [
-  { label: "Início", to: "/" },
-  { label: "Energia", to: "/categoria/energia" },
-  { label: "Imóveis", to: "/categoria/imoveis" },
-  { label: "Agronegócio", to: "/categoria/agronegocio" },
-  { label: "Due Diligence", to: "/categoria/due-diligence" },
-  { label: "Incentivos Fiscais", to: "/categoria/incentivos" },
-  { label: "Cases", to: "/categoria/cases" },
-  { label: "Sobre", to: "/sobre" },
+type NavItem =
+  | { label: string; kind: "home" }
+  | { label: string; kind: "about" }
+  | { label: string; kind: "cat"; slug: string };
+
+const NAV: NavItem[] = [
+  { label: "Início", kind: "home" },
+  { label: "Energia", kind: "cat", slug: "energia" },
+  { label: "Imóveis", kind: "cat", slug: "imoveis" },
+  { label: "Agronegócio", kind: "cat", slug: "agronegocio" },
+  { label: "Due Diligence", kind: "cat", slug: "due-diligence" },
+  { label: "Incentivos", kind: "cat", slug: "incentivos" },
+  { label: "Cases", kind: "cat", slug: "cases" },
+  { label: "Sobre", kind: "about" },
 ];
+
+function NavLink({ item, className, activeClass, onClick }: { item: NavItem; className?: string; activeClass?: string; onClick?: () => void }) {
+  const common = { className, onClick, activeProps: activeClass ? { className: activeClass } : undefined };
+  if (item.kind === "home") return <Link to="/" {...common} activeOptions={{ exact: true }}>{item.label}</Link>;
+  if (item.kind === "about") return <Link to="/sobre" {...common}>{item.label}</Link>;
+  return <Link to="/categoria/$slug" params={{ slug: item.slug }} {...common}>{item.label}</Link>;
+}
+
+void CATEGORIES;
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -85,15 +100,13 @@ export function Header() {
             <Menu className="w-5 h-5" /> Menu
           </button>
           <ul className="hidden lg:flex items-center">
-            {NAV.map((n, i) => (
+            {NAV.map((n) => (
               <li key={n.label}>
-                <Link
-                  to={n.to}
+                <NavLink
+                  item={n}
                   className="block px-4 py-3.5 text-[13px] uppercase tracking-wider font-semibold text-white/80 hover:text-white hover:bg-white/5 transition relative"
-                  activeProps={{ className: "text-white bg-white/10" }}
-                >
-                  {i === 0 ? "Início" : n.label}
-                </Link>
+                  activeClass="text-white bg-white/10"
+                />
               </li>
             ))}
           </ul>
@@ -105,13 +118,11 @@ export function Header() {
           <ul className="lg:hidden bg-ink border-t border-white/10">
             {NAV.map((n) => (
               <li key={n.label}>
-                <Link
-                  to={n.to}
+                <NavLink
+                  item={n}
                   onClick={() => setOpen(false)}
                   className="block px-4 py-3 text-sm text-white/80 hover:bg-white/5 border-b border-white/5"
-                >
-                  {n.label}
-                </Link>
+                />
               </li>
             ))}
           </ul>
