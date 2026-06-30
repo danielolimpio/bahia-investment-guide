@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { PostCard } from "@/components/site/PostCard";
-import { CATEGORIES, postsByCategory, ALL_TAGS, tagSlug } from "@/lib/posts";
+import { CATEGORIES, postsByCategory, ALL_TAGS, tagSlug, type FullPost } from "@/lib/posts";
 import { ChevronRight, Folder } from "lucide-react";
 
 export const Route = createFileRoute("/categoria/$slug")({
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/categoria/$slug")({
 });
 
 function CategoryPage() {
-  const { cat, posts } = Route.useLoaderData();
+  const { cat, posts } = Route.useLoaderData() as { cat: typeof CATEGORIES[number]; posts: FullPost[] };
   return (
     <div className="min-h-screen bg-panel">
       <Header />
