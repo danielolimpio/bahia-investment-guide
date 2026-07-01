@@ -8,15 +8,28 @@ import postSalvador from "@/assets/post-salvador.jpg";
 import postDue from "@/assets/post-due.jpg";
 import postItacare from "@/assets/post-itacare.jpg";
 import postRoi from "@/assets/post-roi.jpg";
+import midEolica from "@/assets/mid-eolica-chapada.jpg";
+import midCasa from "@/assets/mid-casa-itacare.jpg";
 import type { Post } from "@/components/site/PostCard";
+
+export type FaqItem = { q: string; a: string };
 
 export type FullPost = Post & {
   slug: string;
   categorySlug: string;
   tags: string[];
-  content: string[]; // paragraphs (supports markdown-lite: **bold**, ## subhead)
+  content: string[]; // paragraphs (markdown-lite: ## H2, ### H3, #### H4, - lista, > callout, | tabela |, **bold**)
   read: string;
   excerpt: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  updated?: string;
+  midImage?: string;
+  midImageAlt?: string;
+  midImageCaption?: string;
+  faq?: FaqItem[];
+  authorBio?: string;
+  sources?: { label: string; url?: string }[];
 };
 
 export const CATEGORIES = [
