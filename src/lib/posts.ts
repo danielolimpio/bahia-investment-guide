@@ -10,6 +10,10 @@ import postItacare from "@/assets/post-itacare.jpg";
 import postRoi from "@/assets/post-roi.jpg";
 import midEolica from "@/assets/mid-eolica-chapada.jpg";
 import midCasa from "@/assets/mid-casa-itacare.jpg";
+import heroSolarBahia from "@/assets/hero-solar-bahia.jpg";
+import midSolarTelhado from "@/assets/mid-solar-telhado.jpg";
+import heroFranquias from "@/assets/hero-franquias-ba.jpg";
+import midFranquias from "@/assets/mid-franquias-plano.jpg";
 import type { Post } from "@/components/site/PostCard";
 
 export type FaqItem = { q: string; a: string };
