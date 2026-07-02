@@ -171,32 +171,31 @@ function PostPage() {
       </div>
 
       {/* article header */}
-      <article className="mx-auto max-w-5xl px-4 pt-10">
-        <Link to="/categoria/$slug" params={{ slug: post.categorySlug }} className="chip-brand">{post.category}</Link>
-        <h1 className="font-display font-black text-3xl md:text-5xl leading-tight text-ink mt-4">{post.title}</h1>
-        <p className="text-lg text-ink-soft mt-4 leading-relaxed">{post.excerpt}</p>
-        <div className="flex items-center gap-4 mt-6 pb-6 border-b border-border text-sm text-ink-soft">
-          <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-full bg-brand text-brand-foreground grid place-items-center font-bold text-sm">{post.author[0]}</div>
-            <div className="leading-tight">
-              <div className="font-semibold text-ink flex items-center gap-1"><User className="w-3 h-3" /> {post.author}</div>
-              <div className="text-xs">Publicado em {post.date}{post.updated && post.updated !== post.date ? ` · Atualizado em ${post.updated}` : ""} · {post.read} de leitura</div>
+      <section className="mx-auto max-w-7xl px-4 pt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div className="prose-content min-w-0">
+          <Link to="/categoria/$slug" params={{ slug: post.categorySlug }} className="chip-brand">{post.category}</Link>
+          <h1 className="font-display font-black text-3xl md:text-5xl leading-tight text-ink mt-4">{post.title}</h1>
+          <p className="text-lg text-ink-soft mt-4 leading-relaxed">{post.excerpt}</p>
+          <div className="flex flex-wrap items-center gap-4 mt-6 pb-6 border-b border-border text-sm text-ink-soft">
+            <div className="flex items-center gap-2">
+              <div className="w-9 h-9 rounded-full bg-brand text-brand-foreground grid place-items-center font-bold text-sm">{post.author[0]}</div>
+              <div className="leading-tight">
+                <div className="font-semibold text-ink flex items-center gap-1"><User className="w-3 h-3" /> {post.author}</div>
+                <div className="text-xs">Publicado em {post.date}{post.updated && post.updated !== post.date ? ` · Atualizado em ${post.updated}` : ""} · {post.read} de leitura</div>
+              </div>
+            </div>
+            <div className="ml-auto flex items-center gap-2">
+              <button className="inline-flex items-center gap-1 text-xs px-3 py-1.5 rounded border border-border hover:bg-panel"><Share2 className="w-3 h-3" /> Compartilhar</button>
+              <button className="inline-flex items-center gap-1 text-xs px-3 py-1.5 rounded border border-border hover:bg-panel"><Bookmark className="w-3 h-3" /> Salvar</button>
             </div>
           </div>
-          <div className="ml-auto flex items-center gap-2">
-            <button className="inline-flex items-center gap-1 text-xs px-3 py-1.5 rounded border border-border hover:bg-panel"><Share2 className="w-3 h-3" /> Compartilhar</button>
-            <button className="inline-flex items-center gap-1 text-xs px-3 py-1.5 rounded border border-border hover:bg-panel"><Bookmark className="w-3 h-3" /> Salvar</button>
-          </div>
-        </div>
 
-        <figure className="mt-8">
-          <img src={post.image} alt={post.title} className="w-full aspect-[16/9] object-cover rounded-lg" />
-          <figcaption className="text-xs text-ink-soft mt-2">Elaboração AgoraNaBahia a partir de fontes oficiais {post.sources?.map((s) => s.label.split(" — ")[0]).slice(0, 3).join(", ") || "SEI-BA, IBGE e ANEEL"}.</figcaption>
-        </figure>
-      </article>
+          <figure className="mt-8">
+            <img src={post.image} alt={post.title} className="w-full aspect-[16/9] object-cover rounded-lg" />
+            <figcaption className="text-xs text-ink-soft mt-2">Elaboração AgoraNaBahia a partir de fontes oficiais {post.sources?.map((s) => s.label.split(" — ")[0]).slice(0, 3).join(", ") || "SEI-BA, IBGE e ANEEL"}.</figcaption>
+          </figure>
 
-      <section className="mx-auto max-w-5xl px-4 mt-10 grid gap-10 lg:grid-cols-[1fr_280px]">
-        <div className="prose-content">
+          <div className="mt-10" />
           {outline.length > 2 && (
             <nav className="mb-8 rounded-lg border border-border bg-card p-5">
               <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-brand font-bold mb-3"><ListChecks className="w-4 h-4" /> Índice deste guia</div>
