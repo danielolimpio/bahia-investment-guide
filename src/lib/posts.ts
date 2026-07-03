@@ -553,7 +553,7 @@ export const POSTS: FullPost[] = [
     title: "Cacau bean-to-bar: chocolaterias de Ilhéus exportam para a Bélgica",
     category: "Agronegócio", categorySlug: "agronegocio",
     tags: ["Cacau Fino", "Ilhéus", "Exportação", "Bélgica"],
-    image: heroCacau, author: "Renato Souza", date: "28 jun 2026", read: "6 min",
+    image: postCacauBelgica, author: "Renato Souza", date: "28 jun 2026", read: "6 min",
     excerpt: "Cooperativa baiana fecha contrato de US$ 2,4 mi com chocolateria belga premium.",
     content: [
       "Cooperativa Cabruca Sul Bahia anunciou contrato anual de 240 toneladas de cacau fino fermentado para chocolateria belga de Bruges, ticket US$ 11.300/ton.",
@@ -566,7 +566,7 @@ export const POSTS: FullPost[] = [
     title: "Trancoso vs. Caraíva: comparativo de ROI por temporada 2025/26",
     category: "Imóveis", categorySlug: "imoveis",
     tags: ["Trancoso", "Caraíva", "Temporada", "Comparativo"],
-    image: heroImovel, author: "Marina Cerqueira", date: "27 jun 2026", read: "8 min",
+    image: postCaraiva, author: "Marina Cerqueira", date: "27 jun 2026", read: "8 min",
     excerpt: "Diária média Trancoso R$ 2.300 vs Caraíva R$ 1.400 — mas ocupação de Caraíva surpreende.",
     content: [
       "Trancoso e Caraíva representam dois ciclos de maturidade distintos. Trancoso já amadureceu como destino premium internacional; Caraíva ainda é fronteira.",
@@ -579,7 +579,7 @@ export const POSTS: FullPost[] = [
     title: "Como estruturar holding patrimonial na Bahia (custos reais)",
     category: "Due Diligence", categorySlug: "due-diligence",
     tags: ["Holding", "Patrimonial", "ITCMD", "Sucessão"],
-    image: postDue, author: "Equipe ANB", date: "26 jun 2026", read: "10 min",
+    image: postHolding, author: "Equipe ANB", date: "26 jun 2026", read: "10 min",
     excerpt: "ITCMD baiano, integralização de imóveis e quando vale a pena montar holding familiar.",
     content: [
       "Para patrimônios imobiliários acima de R$ 3 milhões, holding familiar tende a ser fiscalmente vantajosa, especialmente no recolhimento de ITCMD (alíquota 4–8% na Bahia).",
