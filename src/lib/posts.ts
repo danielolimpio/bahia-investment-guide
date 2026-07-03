@@ -836,7 +836,7 @@ export const POSTS: FullPost[] = [
     title: "ICMS sobre energia em 2026: o que muda para parques de até 5 MW",
     category: "Energia", categorySlug: "energia",
     tags: ["ICMS", "GD", "Tributário"],
-    image: postSolar, author: "Carlos Mendes", date: "29 jun 2026", read: "5 min",
+    image: postIcmsSolar, author: "Carlos Mendes", date: "29 jun 2026", read: "5 min",
     excerpt: "Análise do convênio CONFAZ 16/15 e impactos na minigeração distribuída baiana.",
     content: [
       "O CONFAZ revisou o convênio 16/15, mantendo isenção do ICMS sobre energia injetada mas restringindo o benefício a sistemas até 5 MW conectados antes de 2027.",
