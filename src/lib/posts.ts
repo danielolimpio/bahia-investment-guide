@@ -14,6 +14,14 @@ import heroSolarBahia from "@/assets/hero-solar-bahia.jpg";
 import midSolarTelhado from "@/assets/mid-solar-telhado.jpg";
 import heroFranquias from "@/assets/hero-franquias-ba.jpg";
 import midFranquias from "@/assets/mid-franquias-plano.jpg";
+import heroConsorcio from "@/assets/hero-consorcio-imoveis.jpg";
+import midConsorcio from "@/assets/mid-consorcio-imoveis.jpg";
+import heroSeguro from "@/assets/hero-seguro-pousada.jpg";
+import midSeguro from "@/assets/mid-seguro-pousada.jpg";
+import postCacauBelgica from "@/assets/post-cacau-belgica.jpg";
+import postCaraiva from "@/assets/post-caraiva.jpg";
+import postIcmsSolar from "@/assets/post-icms-solar.jpg";
+import postHolding from "@/assets/post-holding.jpg";
 import type { Post } from "@/components/site/PostCard";
 
 export type FaqItem = { q: string; a: string };
