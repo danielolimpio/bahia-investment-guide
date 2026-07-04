@@ -22,6 +22,10 @@ import postCacauBelgica from "@/assets/post-cacau-belgica.jpg";
 import postCaraiva from "@/assets/post-caraiva.jpg";
 import postIcmsSolar from "@/assets/post-icms-solar.jpg";
 import postHolding from "@/assets/post-holding.jpg";
+import heroProduzirBa from "@/assets/hero-produzir-ba.jpg";
+import midProduzirBa from "@/assets/mid-produzir-ba.jpg";
+import heroFruticulturaVale from "@/assets/hero-fruticultura-vale.jpg";
+import midFruticulturaManga from "@/assets/mid-fruticultura-manga.jpg";
 import type { Post } from "@/components/site/PostCard";
 
 export type FaqItem = { q: string; a: string };
