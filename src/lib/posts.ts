@@ -824,22 +824,6 @@ export const POSTS: FullPost[] = [
       { q: "É possível pleitear o incentivo para ampliar uma planta já existente?", a: "Sim. A ampliação, modernização, diversificação e reativação de plantas industriais existentes são hipóteses formalmente contempladas pelo programa, com regras próprias sobre investimento incremental, geração adicional de emprego e vinculação do benefício ao acréscimo de faturamento gerado pela expansão." },
     ],
   },
-  },
-  {
-    slug: "produzir-ba-2026",
-    title: "Salvador como hub: incentivos PRODUZIR BA para indústrias 2026",
-    category: "Incentivos", categorySlug: "incentivos",
-    tags: ["PRODUZIR BA", "ICMS", "Camaçari", "Indústria"],
-    image: postSalvador, author: "Equipe ANB", date: "17 jun 2026", read: "8 min",
-    excerpt: "Diferimento de ICMS, crédito presumido e prazos do novo decreto estadual.",
-    content: [
-      "O programa DESENVOLVE/PRODUZIR BA foi renovado por decreto estadual até 2032, mantendo diferimento de ICMS na importação e crédito presumido de até 90% em operações interestaduais.",
-      "## Quem se beneficia",
-      "Indústrias com investimento mínimo de R$ 8 milhões e geração de 25 empregos diretos. Setores prioritários em 2026: hidrogênio verde, baterias, automotivo, químico e processamento de minerais críticos.",
-      "## Como aplicar",
-      "Protocolo via SEDE-BA, prazo médio de análise de 90 dias e necessidade de Carta-Consulta com plano industrial detalhado.",
-    ],
-  },
   {
     slug: "due-diligence-trancoso",
     title: "Due diligence completa antes de comprar terreno em Trancoso",
