@@ -26,6 +26,10 @@ import heroProduzirBa from "@/assets/hero-produzir-ba.jpg";
 import midProduzirBa from "@/assets/mid-produzir-ba.jpg";
 import heroFruticulturaVale from "@/assets/hero-fruticultura-vale.jpg";
 import midFruticulturaManga from "@/assets/mid-fruticultura-manga.jpg";
+import heroBess from "@/assets/hero-bess-bahia.jpg";
+import midBess from "@/assets/mid-bess-inversores.jpg";
+import heroCaraivaInv from "@/assets/hero-caraiva-investimento.jpg";
+import midCaraivaPousada from "@/assets/mid-caraiva-pousada.jpg";
 import type { Post } from "@/components/site/PostCard";
 
 export type FaqItem = { q: string; a: string };
