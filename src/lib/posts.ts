@@ -1,7 +1,6 @@
 import heroEolica from "@/assets/hero-eolica.jpg";
 import heroImovel from "@/assets/hero-imovel.jpg";
 import heroCacau from "@/assets/hero-cacau.jpg";
-import postSolar from "@/assets/post-solar.jpg";
 import postMorro from "@/assets/post-morro.jpg";
 import postFruta from "@/assets/post-fruta.jpg";
 import postSalvador from "@/assets/post-salvador.jpg";
@@ -19,7 +18,6 @@ import midConsorcio from "@/assets/mid-consorcio-imoveis.jpg";
 import heroSeguro from "@/assets/hero-seguro-pousada.jpg";
 import midSeguro from "@/assets/mid-seguro-pousada.jpg";
 import postCacauBelgica from "@/assets/post-cacau-belgica.jpg";
-import postCaraiva from "@/assets/post-caraiva.jpg";
 import postIcmsSolar from "@/assets/post-icms-solar.jpg";
 import postHolding from "@/assets/post-holding.jpg";
 import heroProduzirBa from "@/assets/hero-produzir-ba.jpg";
