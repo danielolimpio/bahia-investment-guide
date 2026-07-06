@@ -1488,7 +1488,6 @@ export const POSTS: FullPost[] = [
       { q: "Preciso de escritório especializado ou posso fazer com contador comum?", a: "Constituição e operação recorrente exigem atuação conjunta de advogado tributarista e contador com experiência específica em holdings patrimoniais. Modelos genéricos criados por profissionais sem essa especialização frequentemente resultam em custo tributário maior do que o modelo tradicional." },
     ],
   },
-  },
 ];
 
 // Backwards-compatible views used by the homepage
