@@ -1249,7 +1249,6 @@ export const POSTS: FullPost[] = [
       { q: "É seguro assinar contrato de aluguel de energia com desconto na conta?", a: "É seguro desde que o contrato preveja garantias adequadas: cláusula de reequilíbrio para mudanças tributárias, mecanismo transparente de repasse do custo do Fio B, prazo compatível com o financiamento do projeto e cláusulas claras de rescisão. Contratos genéricos, sem essas proteções, podem se tornar desvantajosos ao longo dos 25 anos." },
     ],
   },
-  },
   {
     slug: "cacau-bean-to-bar-belgica",
     title: "Cacau bean-to-bar: chocolaterias de Ilhéus exportam para a Bélgica",
